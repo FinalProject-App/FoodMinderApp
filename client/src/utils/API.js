@@ -7,18 +7,14 @@ export default {
         return axios.get(BASEURL);
     },
     // Deletes the book with the given id
-    deleteItems: function(id) {
+    deleteItem: function(id) {
         return axios.delete(BASEURL + id);
     },
     // Saves a book to the database
-    saveItems: function(ItemsData) {
+    saveItem: function(ItemsData) {
         return axios.post(BASEURL, ItemsData);
     },
-    // Gets the book with the given id
-    // getArticle: function(id) {
-    //     return axios.get(BASEURL + id);
-    // },
-    patchItems: function(id, ItemsData) {
+    patchItem: function(id, ItemsData) {
         return axios.patch(BASEURL + id, ItemsData);
     },
 };

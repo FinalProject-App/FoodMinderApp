@@ -1,4 +1,4 @@
 module.exports = {
-    Items: require("./Items.js")
+    Items: require("./items.js")
     
 };

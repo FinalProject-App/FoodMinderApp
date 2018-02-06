@@ -14,29 +14,22 @@ mongoose.connect(
 
 const ItemsSeed = [
   {
-    name: "Kevin",
-    item: "campbell's soup",
+    description: "campbell's soup",
     expiration: "00/00/00"
   },
   {
-    name: "Tas",
-    item: "Frozen Dumplings",
+    description: "Frozen Dumplings",
     expiration: "00/00/00"
   },
   {
-    name: "Mahesh",
-    item: "Nature Valley Bars",
+    description: "Nature Valley Bars",
     expiration: "01/01/2020"
   },
   {
-    name: "Chandani",
-    item: "Guac",
+    description: "Guac",
     expiration: "07/10/2018"
   }
 ];
-
-
-
 
 
 db.Items

@@ -1,17 +1,11 @@
 // import React, { Component } from 'react';
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Books from "./pages/Books";
+import ItemsList from "./pages/ItemsList";
+import SwapItems from "./pages/SwapItems"
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
-
-// Class App extends Component {
-//   constructor(){
-//     super();
-//     this.add
-//   };
-// }
 
 
 
@@ -20,9 +14,12 @@ const App = () =>
     <div>
       <Nav />
       <Switch>
-        <Route exact path="/" component={Books} />
-        <Route exact path="/books" component={Books} />
-        <Route exact path="/books/:id" component={Detail} />
+        <Route  path="/" component={ItemsList} />
+        <Route  path="/Items" component={ItemsList} />
+        <Route  path="/Items/:id" component={Detail} />
+        <Route  path="/swap/" component={SwapItems} />
+        <Route  path="/swap/:id" component={Detail} />
+
         <Route component={NoMatch} />
       </Switch>
     </div>

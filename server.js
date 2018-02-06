@@ -1,7 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const Controller = require("./controllers/controllers.js")
+const itemsController = require("./controllers/itemsControllers.js");
+const swapController = require("./controllers/swapControllers.js")
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -13,7 +15,8 @@ app.use(express.static("client/build"));
 // Add routes, both API and view
 
 //**change server.js file to amend the new controllers (local and external)
-app.use(Controller);
+app.use(itemsController);
+app.use(swapController);
 
 
 // Set up promises with mongoose
