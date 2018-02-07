@@ -2,11 +2,11 @@ import axios from "axios";
 const BASEURL = "/api/Items";
 
 export default {
-    // Gets all books
+    // Gets all items
     getItems: function() {
         return axios.get(BASEURL);
     },
-    // Deletes the book with the given id
+    // Deletes the item with the given id
     deleteItem: function(id) {
         return axios.delete(BASEURL + id);
     },

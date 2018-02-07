@@ -4,7 +4,6 @@ import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
-import { Input, FormBtn } from "../../components/Form";
 
 class ItemsList extends React.Component {
   constructor(props) {
@@ -17,9 +16,9 @@ class ItemsList extends React.Component {
   }
 
   // When the component mounts, load all books and save them to this.state.books
-  componentDidMount() {
+ /* componentDidMount() {
     this.loadItems();
-  }
+  } */
 
   // Loads all books  and sets them to this.state.books
   loadItems = () => {
@@ -40,8 +39,9 @@ class ItemsList extends React.Component {
 
   render() {
     return (
-    <Row>
       <Container>
+       <Row>
+     
           <Col size="md-6 sm-12">
             <Jumbotron>
               <h1>Food Items on the List</h1>
@@ -71,4 +71,4 @@ class ItemsList extends React.Component {
   }
 }
 
-export default ItemsList;
+export default ItemsList

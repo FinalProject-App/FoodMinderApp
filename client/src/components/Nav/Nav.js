@@ -11,7 +11,7 @@ const Nav = () =>
         </button>
         <a href="/" className="navbar-brand">
 
-            NY Times Article Scrubber
+            Food Minder App
 
         </a>
       </div>

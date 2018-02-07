@@ -1,8 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const itemsController = require("./controllers/itemsControllers.js");
-const swapController = require("./controllers/swapControllers.js")
+const itemsController = require("./controllers/itemcontrollers.js")
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -16,7 +15,6 @@ app.use(express.static("client/build"));
 
 //**change server.js file to amend the new controllers (local and external)
 app.use(itemsController);
-app.use(swapController);
 
 
 // Set up promises with mongoose

@@ -1,10 +1,20 @@
 import React from "react";
 import Jumbotron from "../../components/Jumbotron";
-import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
 import { Input, FormBtn } from "../../components/Form";
+
+class Form extends React.Component {
+  // Setting the component's initial state
+  constructor(props) {
+    super(props);
+    this.state = {
+      description: "",
+      expiration: "",
+      
+    };
+  }
+
 
   // Handles updating component state when the user types into the input field
   handleInputChange = event => {
@@ -36,7 +46,7 @@ render() {
 <Row>
   <Col size="md-6">
     <Jumbotron>
-      <h1>add Food Item</h1>
+      <h1>Add Food Item</h1>
     </Jumbotron>
     <form>
       <Input
@@ -67,4 +77,4 @@ render() {
 }
 
 
-export default Form;
+export default Form
