@@ -3,45 +3,37 @@ const mongoose = require("mongoose");
 const db = require("../models");
 mongoose.Promise = global.Promise;
 
-// This file empties the Books collection and inserts the books below
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/Items",
+  process.env.MONGODB_URI || "mongodb://localhost/ItemsDB",
   {
     useMongoClient: true
   }
 );
 
-const ItemsSeed = [
+const ItemsDBSeed = [
   {
-    name: "Kevin",
-    item: "campbell's soup",
+    description: "campbell's soup",
     expiration: "00/00/00"
   },
   {
-    name: "Tas",
-    item: "Frozen Dumplings",
+    description: "Frozen Dumplings",
     expiration: "00/00/00"
   },
   {
-    name: "Mahesh",
-    item: "Nature Valley Bars",
+    description: "Nature Valley Bars",
     expiration: "01/01/2020"
   },
   {
-    name: "Chandani",
-    item: "Guac",
+    description: "Guac",
     expiration: "07/10/2018"
   }
 ];
 
 
-
-
-
-db.Items
+db.ItemsDB
   .remove({})
-  .then(() => db.Items.collection.insertMany(ItemsSeed))
+  .then(() => db.ItemsDB.collection.insertMany(ItemsDBSeed))
   .then(data => {
     console.log(data.insertedIds.length + " records inserted!");
     process.exit(0);

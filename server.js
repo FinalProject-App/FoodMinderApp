@@ -1,7 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const Controller = require("./controllers/controllers.js")
+const itemsController = require("./controllers/itemcontrollers.js")
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -13,7 +14,7 @@ app.use(express.static("client/build"));
 // Add routes, both API and view
 
 //**change server.js file to amend the new controllers (local and external)
-app.use(Controller);
+app.use(itemsController);
 
 
 // Set up promises with mongoose
@@ -21,7 +22,7 @@ mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
 
 mongoose.connect(
-    process.env.MONGODB_URI || "mongodb://localhost/Items", {useMongoClient: true}
+    process.env.MONGODB_URI || "mongodb://localhost/ItemsDB", {useMongoClient: true}
 );
 
 // Start the API server
