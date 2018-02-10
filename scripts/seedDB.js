@@ -5,13 +5,13 @@ mongoose.Promise = global.Promise;
 
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/Items",
+  process.env.MONGODB_URI || "mongodb://localhost/ItemsDB",
   {
     useMongoClient: true
   }
 );
 
-const ItemsSeed = [
+const ItemsDBSeed = [
   {
     description: "campbell's soup",
     expiration: "00/00/00"
@@ -31,9 +31,9 @@ const ItemsSeed = [
 ];
 
 
-db.Items
+db.ItemsDB
   .remove({})
-  .then(() => db.Items.collection.insertMany(ItemsSeed))
+  .then(() => db.ItemsDB.collection.insertMany(ItemsDBSeed))
   .then(data => {
     console.log(data.insertedIds.length + " records inserted!");
     process.exit(0);

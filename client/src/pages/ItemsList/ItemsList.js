@@ -15,6 +15,10 @@ class ItemsList extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.loadItems();
+  }
+
   loadItems = () => {
     API.getItems()
       .then(res =>
@@ -25,10 +29,11 @@ class ItemsList extends React.Component {
 
   // Deletes a book from the database with a given id, then reloads books from the db
   deleteItem = id => {
-    API.deleteItems(id)
+    API.deleteItem(id)
       .then(res => this.loadItems())
       .catch(err => console.log(err));
   };
+  
 
 
   render() {
@@ -45,12 +50,11 @@ class ItemsList extends React.Component {
                 {this.state.items.map(item => {
                   return (
                     <ListItem key={item._id}>
-                      <a href={"/items/" + item._id}>
                         <strong>
-                          {item.description} Expiration: {item.expiration}
+                          Item: {item.description} Expiration: {item.expiration}
                         </strong>
-                      </a>
-                      <DeleteBtn onClick={() => this.deleteItems(item._id)} />
+                    
+                      <DeleteBtn onClick= {() => this.deleteItem(item._id)} />
                     </ListItem>
                   );
                 })}
