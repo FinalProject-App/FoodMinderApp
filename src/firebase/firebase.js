@@ -8,13 +8,13 @@ const config = {
     storageBucket: "foodminder-99f48.appspot.com",
     messagingSenderId: "1021608740878"
   };
-};
 
 if (!firebase.apps.length) {
   firebase.initializeApp(config);
 }
 
 const auth = firebase.auth();
+
 export{
 	auth,
 };
