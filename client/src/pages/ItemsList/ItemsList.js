@@ -15,12 +15,6 @@ class ItemsList extends React.Component {
     };
   }
 
-  // When the component mounts, load all books and save them to this.state.books
- /* componentDidMount() {
-    this.loadItems();
-  } */
-
-  // Loads all books  and sets them to this.state.books
   loadItems = () => {
     API.getItems()
       .then(res =>

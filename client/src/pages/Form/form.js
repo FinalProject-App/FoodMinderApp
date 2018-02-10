@@ -3,6 +3,8 @@ import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 import { Input, FormBtn } from "../../components/Form";
+import { NavLink } from 'react-router-dom';
+
 
 class Form extends React.Component {
   // Setting the component's initial state
@@ -69,8 +71,11 @@ render() {
         Submit Item
       </FormBtn>
     </form>
+    
   </Col>
   </Row>
+  <NavLink to="/Items">View List</NavLink>
+
       </Container>
     );
   }

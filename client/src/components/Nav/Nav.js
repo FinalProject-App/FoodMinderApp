@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const Nav = () =>
   <nav className="navbar navbar-inverse navbar-top">
     <div className="container-fluid">
@@ -10,10 +11,10 @@ const Nav = () =>
           <span className="icon-bar" />
         </button>
         <a href="/" className="navbar-brand">
-
             Food Minder App
 
         </a>
+        
       </div>
     </div>
   </nav>;

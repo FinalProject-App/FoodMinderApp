@@ -1,12 +1,10 @@
 // import React, { Component } from 'react';
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React from "react";import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import ItemsList from "./pages/ItemsList";
-import Detail from "./pages/Detail";
+import Home from "./pages/Home";
 import Form from "./pages/Form";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
-
 
 
 const App = () =>
@@ -14,11 +12,9 @@ const App = () =>
     <div>
       <Nav />
       <Switch>
-        <Route  path="/" component={ItemsList} />
-        <Route  path="/Items" component={ItemsList} />
-        <Route  path="/Items/:id" component={Detail} />
-        <Route  path="/Form" component={Form} />
-
+        <Route  exact path="/" component={Home} />
+        <Route  exact path="/Items" component={ItemsList} />
+        <Route  exact path="/Form" component={Form} />
         <Route component={NoMatch} />
       </Switch>
     </div>
