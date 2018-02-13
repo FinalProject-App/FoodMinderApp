@@ -1,10 +1,9 @@
 import React from "react";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
-// import { Col, Row, Container } from "../../components/Grid";
+import { Col, Row, Container } from "../../components/Grid";
 import { Input, FormBtn } from "../../components/Form";
 import { NavLink } from 'react-router-dom';
-import { Container } from "../../components/Grid/index";
 
 
 class Form extends React.Component {
@@ -45,31 +44,37 @@ class Form extends React.Component {
 
   render() {
     return (
-      <Container>
-        <div className='.col-xs-6 .col-md-4'>
-          <Jumbotron>
-            <h1 className='text-center'>Add Food Item</h1>
-          </Jumbotron>
-          <form>
-            <Input
-              value={this.state.description}
-              onChange={this.handleInputChange}
-              name="description"
-              placeholder=" description (required)"
-            />
-            <Input
-              value={this.state.expiration}
-              onChange={this.handleInputChange}
-              name="expiration"
-              placeholder="Expiration Date (required)"
-            />
+      <Container fluid>
+        <Row>
+          
+          <Col size='md-6'>
+            <Jumbotron fluid>
+              <h1>Add Food Item</h1>
+            </Jumbotron>
+            <form>
+              <Input
+                value={this.state.description}
+                onChange={this.handleInputChange}
+                name="description"
+                placeholder="item description (required)"
+              />
+              <Input
+                value={this.state.expiration}
+                onChange={this.handleInputChange}
+                name="expiration"
+                placeholder="Expiration Date (required)"
+              />
 
-            <FormBtn
-              disabled={!(this.state.description && this.state.expiration)}
-              onClick={this.handleFormSubmit}>Submit Item</FormBtn>
-          </form>
-          <NavLink to="/Items">View List</NavLink>
-        </div>
+              <FormBtn
+                disabled={!(this.state.description && this.state.expiration)}
+                onClick={this.handleFormSubmit}>Submit Item</FormBtn>
+            </form>
+
+          </Col>
+        </Row>
+    
+        <NavLink to="/Items">View List</NavLink>
+
       </Container>
     );
   }
