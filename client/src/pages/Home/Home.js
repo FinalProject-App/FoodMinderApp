@@ -18,18 +18,20 @@ import { Container } from "../../components/Grid";
 render () {
   return (
   
-      <Jumbotron fluid>
-       <Container fluid>
-        <h1>Welcome!</h1>
-        <p className="intro">We help you keep track of how long you have until your food goes bad!</p>
-        
-          <button type="button" outline color = "primary"
-          className = "FormBtn" onClick = {this.handleClick} >
-          Add Item.. </button>
+      <Jumbotron  style={{'vertical-align':'bottom'}}>
+       <Container fluid  >
+        <h1 className="text-center">Welcome!</h1>
+        <p className="intro text-center">We help you keep track of how long you have until your food goes bad!</p>
+        <div  style={{'text-align':'center'}}>
           
+          <button type="button" color = "primary"
+          className = "FormBtn btn btn-info"   onClick = {this.handleClick} >
+          Add Item.. </button>
+          <span> </span>
            <button type="button" outline color = "primary"
-          className = "ItemBtn" onClick = {this.handleForm} >
+          className = "ItemBtn btn btn-info" bsStyle="Information" onClick = {this.handleForm} >
           My Items </button>
+          </div>
           </ Container>
         </Jumbotron>
   
