@@ -1,8 +1,9 @@
+
 .navbar {
 	font-weight: 200px;
 }
 
 li{
 	list-style: none;
-
+	color: green;
 }

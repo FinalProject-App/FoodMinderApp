@@ -4,6 +4,7 @@ import { Link, withRouter,  } from 'react-router-dom';
 import { auth, db } from '../../firebase';
 import * as routes from "../../constants/routes";
 import SignOutButton from '../SignOut';
+import "./Nav.css";
 
 
 const Nav = () =>
