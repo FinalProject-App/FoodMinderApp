@@ -6,6 +6,6 @@ const ItemsSchema = new Schema({
     expiration: { type: String, required: true}
 });
 
-const Items = mongoose.model("Items", ItemsSchema);
+const ItemsDB = mongoose.model("ItemsDB", ItemsSchema);
 
-module.exports = Items;
+module.exports = ItemsDB;
