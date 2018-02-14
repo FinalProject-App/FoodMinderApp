@@ -2,16 +2,28 @@ import React from "react";
 import Jumbotron from "../../components/Jumbotron";
 import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
-import { Col, Row, Container } from "../../components/Grid";
+//import { Col, Row, Container } from "../../components/Grid";
+import {Container } from "../../components/Grid/index";
 import { List, ListItem } from "../../components/List";
 
 class ItemsList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: [],
-      description: "",
-      expiration: ""
+      items:[{ 
+      _id:"1",
+      description: "dasdasd",
+      expiration: "11-11-1111"
+    },{ 
+      _id:"2",
+      description: "asdasdsd",
+      expiration: "12-12-1212"
+    },
+    { 
+      _id:"3",
+      description: "rtytrytry",
+      expiration: "13-13-1313"
+    }]
     };
   }
 
@@ -22,7 +34,20 @@ class ItemsList extends React.Component {
   loadItems = () => {
     API.getItems()
       .then(res =>
-        this.setState({ items: res.data, description: "", expiration: "" })
+        this.setState({ items:[{ 
+          _id:"1",
+          description: "dasdasd",
+          expiration: "11-11-1111"
+        },{ 
+          _id:"2",
+          description: "asdasdsd",
+          expiration: "12-12-1212"
+        },
+        { 
+          _id:"3",
+          description: "rtytrytry",
+          expiration: "13-13-1313"
+        }]})
       )
       .catch(err => console.log(err));
   };
@@ -36,22 +61,21 @@ class ItemsList extends React.Component {
   
 
 
-  render() {
-    return (
-      <Container>
-       <Row>
-     
-          <Col size="md-6 sm-12">
-            <Jumbotron>
-              <h1>Food Items on the List</h1>
-            </Jumbotron>
-            {this.state.items.length ? (
+  render()
+  {
+    return(
+     <Container>
+       <div className='.col-xs-6 .col-md-4' style={{'text-align':'center'}}>
+         <div className="jumbotron">
+           <h1> Food Items on the List </h1>
+           </div>
+           {this.state.items.length ? (
               <List>
                 {this.state.items.map(item => {
                   return (
                     <ListItem key={item._id}>
                         <strong>
-                          Item: {item.description} Expiration: {item.expiration}
+                          Item: {item.description}  | Expiration: {item.expiration} 
                         </strong>
                     
                       <DeleteBtn onClick= {() => this.deleteItem(item._id)} />
@@ -62,10 +86,12 @@ class ItemsList extends React.Component {
             ) : (
                 <h3>No Results to Display</h3>
               )}
-          </Col>
-        </Row>
-      </Container>
+       </div>
+
+    </Container>
     );
+
+
   }
 }
 

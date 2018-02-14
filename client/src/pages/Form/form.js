@@ -46,10 +46,10 @@ class Form extends React.Component {
   render() {
     return (
       <Container>
-        <div className='.col-xs-6 .col-md-4'>
-          <Jumbotron>
+        <div className=".col-xs-6 .col-md-4">
+          <div className='jumbotron'>
             <h1 className='text-center'>Add Food Item</h1>
-          </Jumbotron>
+          </div>
           <form>
             <Input
               value={this.state.description}
