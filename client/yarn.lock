@@ -5175,9 +5175,9 @@ react-scripts@1.0.14:
   optionalDependencies:
     fsevents "1.1.2"
 
-react@^16.0.0:
+react@^16.2.0:
   version "16.2.0"
-  resolved "https://registry.npmjs.org/react/-/react-16.2.0.tgz#a31bd2dab89bff65d42134fa187f24d054c273ba"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.2.0.tgz#a31bd2dab89bff65d42134fa187f24d054c273ba"
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"
