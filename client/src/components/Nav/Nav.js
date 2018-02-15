@@ -1,22 +1,38 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import SignOutButton from '../SignOut';
 
 
-const Nav = () =>
-  <nav className="navbar navbar-inverse navbar-top">
-    <div className="container-fluid">
-      <div className="navbar-header">
-        <button type="button" className="collapsed navbar-toggle">
-          <span className="sr-only">Toggle navigation</span>
-          <span className="icon-bar" /> <span className="icon-bar" />
-          <span className="icon-bar" />
-        </button>
-        <a href="/" className="navbar-brand">
-            Food Minder App
-
-        </a>
-        
-      </div>
+const Navigation = (props, { authUser }) =>
+<nav className="navbar navbar-default navbar-static-top">
+<div className="container-fluid">
+  <div className="navbar-header">
+  </div>
+    { authUser
+        ? <NavigationAuth />
+        : <NavigationNonAuth />
+    }
     </div>
-  </nav>;
+ </nav>;
 
-export default Nav;
+Navigation.contextTypes = {
+authUser: PropTypes.object,
+};
+   
+    
+const NavigationAuth = () =>
+<ul className="nav navbar-nav navbar-right js-anonymous-header">
+<li><a href="/">FoodMinder</a>
+<a href="/home">Home</a>
+<a href="/account">Account</a>
+ <SignOutButton /></li>
+</ul>
+
+const NavigationNonAuth = () =>
+<ul className="nav navbar-nav navbar-right js-anonymous-header">
+<li><a href="/landing">FoodMinder</a>
+<a href="/signin">Sign In</a></li>
+</ul>
+
+export default Navigation;

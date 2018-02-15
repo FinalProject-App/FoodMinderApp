@@ -8,6 +8,7 @@ const ItemsFunctions = {
     findAll: function(req, res) {
         db.ItemsDB
             .find(req.query)
+            .where("email").equals(req.params.email)
             .sort({ date: -1 })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
@@ -33,9 +34,11 @@ const ItemsFunctions = {
     }
 }
 
-router.get("/api/ItemsDB", ItemsFunctions.findAll)
+router.get("/api/ItemsDB/:email", ItemsFunctions.findAll)
 
 router.post("/api/ItemsDB", ItemsFunctions.create)
+
+router.post("/signin/:email", ItemsFunctions.create)
 
 router.delete("/api/ItemsDB/:id", ItemsFunctions.remove)
 

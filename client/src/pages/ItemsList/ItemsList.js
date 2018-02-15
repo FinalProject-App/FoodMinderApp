@@ -4,30 +4,36 @@ import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
+import { firebase } from "../../firebase";
+import  withAuthorization from "../../components/withAuthorization";
+import withAuthentication from "../../components/withAuthentication";
 
 class ItemsList extends React.Component {
-  constructor(props) {
+  constructor(props, { authUser }) {
     super(props);
     this.state = {
       items: [],
       description: "",
-      expiration: ""
+      expiration: "",
+      email: ""
     };
   }
 
-  componentDidMount() {
+ componentDidMount() {
     this.loadItems();
+  firebase.auth.onAuthStateChanged(authUser => {
+   this.setState({"email": authUser});
+   })
   }
 
   loadItems = () => {
-    API.getItems()
+    API.getItems(this.state.email)
       .then(res =>
-        this.setState({ items: res.data, description: "", expiration: "" })
+        this.setState({ items: res.data, description: "", expiration: ""})
       )
       .catch(err => console.log(err));
   };
 
-  // Deletes a book from the database with a given id, then reloads books from the db
   deleteItem = id => {
     API.deleteItem(id)
       .then(res => this.loadItems())
@@ -51,7 +57,10 @@ class ItemsList extends React.Component {
                   return (
                     <ListItem key={item._id}>
                         <strong>
-                          Item: {item.description} Expiration: {item.expiration}
+                          Item: {item.description} 
+                         </strong>
+                        <strong>
+                          Expiration: {item.expiration}
                         </strong>
                     
                       <DeleteBtn onClick= {() => this.deleteItem(item._id)} />
@@ -69,4 +78,7 @@ class ItemsList extends React.Component {
   }
 }
 
-export default ItemsList
+const authCondition = (authUser) => !!authUser;
+
+export default ItemsList;
+

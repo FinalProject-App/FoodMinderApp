@@ -2,9 +2,10 @@ import axios from "axios";
 const BASEURL = "/api/ItemsDB";
 
 export default {
+ 
     // Gets all items
-    getItems: function() {
-        return axios.get(BASEURL);
+    getItems: function(email) {
+        return axios.get("/api/ItemsDB/" + email);
     },
     // Deletes the item with the given id
     deleteItem: function(id) {
@@ -13,5 +14,6 @@ export default {
     // Saves a book to the database
     saveItem: function(ItemsData) {
         return axios.post(BASEURL, ItemsData);
-    },
+    }
+   
 };

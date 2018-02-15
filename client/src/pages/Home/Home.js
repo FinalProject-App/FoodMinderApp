@@ -1,42 +1,28 @@
-import React from "react";
+import React from 'react';
 import Jumbotron from "../../components/Jumbotron";
 import { Container } from "../../components/Grid";
+import { Link } from 'react-router-dom';
+import * as routes from "../../constants/routes.js";
+import  withAuthorization from "../../components/withAuthorization";
 
 
- 
- class Home extends React.Component {
-   
-      handleClick = () => {
-        this.props.history.push("/Form");
-
-      }
-      handleForm = () => {
-        this.props.history.push("/Items");
-
-      };
-
-render () {
-  return (
-  
+const HomePage = () =>
+     <div>
       <Jumbotron fluid>
        <Container fluid>
-        <h1>Welcome!</h1>
-        <p className="intro">We help you keep track of how long you have until your food goes bad!</p>
-        
-          <button type="button" outline color = "primary"
-          className = "FormBtn" onClick = {this.handleClick} >
-          Add Item.. </button>
+        <h1>Welcome! </h1>
+        <p className="intro">We help you keep track of how long you have until the food you own goes bad.</p>
+
+        <button><Link to={routes.FORM}>Add Item</Link></button>
+
+        <button><Link to={routes.MYLIST}>My List</Link></button>
           
-           <button type="button" outline color = "primary"
-          className = "ItemBtn" onClick = {this.handleForm} >
-          My Items </button>
           </ Container>
         </Jumbotron>
+        
+     </div>
   
-    );
-  }
-}
 
+const authCondition = (authUser) => !!authUser;
 
-
-export default Home
+export default withAuthorization(authCondition)(HomePage)
