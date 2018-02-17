@@ -44,13 +44,12 @@ class ItemsList extends React.Component {
 
   render() {
     return (
-      <Container>
-       <Row>
-     
-          <Col size="md-6 sm-12">
-            <Jumbotron>
+      <Container fluid>
+      <Jumbotron fluid>
+      <div className="item active"> <img src="https://www.agapichristinard.com/wp-content/uploads/2016/06/healthy-background-6.jpg" />
+      <div className="carousel-caption">
+      <div className="carousel-caption-inner">
               <h1>Food Items on the List</h1>
-            </Jumbotron>
             {this.state.items.length ? (
               <List>
                 {this.state.items.map(item => {
@@ -58,8 +57,7 @@ class ItemsList extends React.Component {
                     <ListItem key={item._id}>
                         <strong>
                           Item: {item.description} 
-                         </strong>
-                        <strong>
+                        <br/>
                           Expiration: {item.expiration}
                         </strong>
                     
@@ -71,8 +69,10 @@ class ItemsList extends React.Component {
             ) : (
                 <h3>No Results to Display</h3>
               )}
-          </Col>
-        </Row>
+        </div>
+        </div>
+        </div>
+      </Jumbotron>
       </Container>
     );
   }

@@ -4,9 +4,9 @@ const Schema = mongoose.Schema;
 const ItemsSchema = new Schema({
     description: { type: String, required: true },
     expiration: { type: String, required: true},
-    email: {type: String }
+    email: {type: String, required: true}
 });
 
-const Items = mongoose.model("Items", ItemsSchema);
+const ItemsDB = mongoose.model("ItemsDB", ItemsSchema);
 
-module.exports = Items;
+module.exports = ItemsDB;

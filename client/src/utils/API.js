@@ -4,8 +4,8 @@ const BASEURL = "/api/ItemsDB";
 export default {
  
     // Gets all items
-    getItems: function(email) {
-        return axios.get("/api/ItemsDB/" + email);
+    getItems: function(ItemsData) {
+        return axios.get(BASEURL, ItemsData);
     },
     // Deletes the item with the given id
     deleteItem: function(id) {

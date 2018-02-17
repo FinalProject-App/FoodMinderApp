@@ -15,6 +15,23 @@ import Form from "./pages/Form";
 import ItemsList from "./pages/ItemsList"
 import AccountPage from './components/Account';
 import * as routes from './constants/routes';
+import './vendor/css/animate.css';
+import './vendor/css/bootstrap.min.css';
+import './vendor/css/bxslider.css';
+import './vendor/css/responsive.css';
+import './vendor/css/scrolling-nav.css';
+import './vendor/css/style.css';
+
+/*import './vendor/js/bootstrap.min';
+import './vendor/js/counterup.min';
+import './vendor/js/custom';
+import './vendor/js/instafeed.min';
+import './vendor/js/jquery.inview.min';
+import './vendor/js/jquery.min';
+import './vendor/js/waypoints.min';*/
+
+
+
 
 const App = () =>
   <Router>

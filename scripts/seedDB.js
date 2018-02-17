@@ -13,18 +13,21 @@ mongoose.connect(
 
 const ItemsDBSeed = [
   {
+    email: "tasnuvah00@gmail.com",
     description: "campbell's soup",
     expiration: "00/00/00"
   },
-  {
+  { email: "tasnuvah00@gmail.com",
     description: "Frozen Dumplings",
     expiration: "00/00/00"
   },
   {
+    email: "noursalem0@gmail.com",
     description: "Nature Valley Bars",
     expiration: "01/01/2020"
   },
   {
+    email: "noursalem0@gmail.com",
     description: "Guac",
     expiration: "07/10/2018"
   }

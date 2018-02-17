@@ -58,12 +58,13 @@ class Form extends React.Component {
 
 render() {
     return (
+      
 <Container fluid>
-<Row>
-  <Col size="md-6">
-    <Jumbotron>
-      <h1>Add Food Item</h1>
-    </Jumbotron>
+<Jumbotron fluid>
+<div className="item active"> <img src="https://www.agapichristinard.com/wp-content/uploads/2016/06/healthy-background-6.jpg" />
+<div className="carousel-caption">
+<div className="carousel-caption-inner">
+<h1>Add Food Product</h1>
     <form>
       <Input
         value={this.state.description}
@@ -84,13 +85,13 @@ render() {
       >
         Submit Item
       </FormBtn>
+      <NavLink to="/Items">View List</NavLink>
     </form>
-    
-  </Col>
-  </Row>
-  <NavLink to="/Items">View List</NavLink>
-
-      </Container>
+  </div>
+  </div>
+  </div>
+  </Jumbotron>
+  </Container>
     );
   }
 }
